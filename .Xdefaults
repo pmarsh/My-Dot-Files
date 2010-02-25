@@ -1,0 +1,3 @@
+URxvt*background:Black
+URxvt*foreground:White
+URxvt*font:      xft:Inconsolata:pixelsize=14
