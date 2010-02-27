@@ -1,0 +1,15 @@
+[user]
+    email = paul.marsh@gmail.com
+    name = Paul Marsh
+[alias]
+    st = status
+    ci = commit
+    co = checkout
+    br = branch
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+[core]
+    editor = vim
