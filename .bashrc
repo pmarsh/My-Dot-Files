@@ -23,6 +23,7 @@ shopt -s extglob
 alias edit_conflicts="${EDITOR:-vim} \$(svn status|awk '/^C/{print \$2}')"
 alias edit_code="${EDITOR:-vim} \$(svn st | awk '/^[AM].*p[ml]/{print \$2}')"
 alias edit_tests="${EDITOR:-vim} \$(svn st | awk '/^[AM].*\.t$/{print \$2}')"
+alias uxterm="uxterm -fa 'Inconsolata-10' -bg black"
 
 export TIMEFORMAT=$'\nreal %3R\tuser %3U\tsys %3S\tpcpu %P\n'
 export HISTTIMEFORMAT="%H:%M > "
@@ -152,7 +153,8 @@ function extract()      # Handy Extract Program.
 function parse_git_branch {
 git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1) /'
 }
-PS1="\[\033[1;36m\][\[\033[1;32m\]\u\[\033[0;32m\]@\[\033[0;31m\]\h\[\033[0;37m\]:\W\[\033[1;36m\]]\033[1:31m\]\$(parse_git_branch)\033[1;36m$ \[\033[1;37m\]"
+#PS1="\[\033[1;36m\][\[\033[1;32m\]\u\[\033[0;32m\]@\[\033[0;31m\]\h\[\033[0;37m\]:\W\[\033[1;36m\]]\033[1:31m\]\$(parse_git_branch)\033[1;36m$ \[\033[1;37m\]"
+PS1="[\[\033[32m\]\w]\[\033[0m\]\n\[\033[1;36m\]\u@\h\[\033[1;33m\] \$(parse_git_branch) -> \[\033[0m\]"
 
 
 function to () {
@@ -223,3 +225,5 @@ complete -A directory  mkdir rmdir
 complete -A directory   -o default cd
 complete -f -o default -X '!*.+(zip|ZIP|z|Z|gz|GZ|bz2|BZ2)' extract
 
+if [[ -s /home/pmarsh/.rvm/scripts/rvm ]] ; then source /home/pmarsh/.rvm/scripts/rvm ; fi
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

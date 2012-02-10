@@ -1,0 +1,8 @@
+---
+:sources:
+- http://gemcutter.org
+:verbose: really
+gem: --no-rdoc 
+:benchmark: false
+:update_sources: true
+:backtrace: false
